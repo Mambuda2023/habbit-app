@@ -1,8 +1,10 @@
 body {
   background: #f3f6fd;
+  font-weight: 400;
 }
 .app {
   display: flex;
+  gap: 50px;
 }
 .panel {
   background: white;
@@ -27,6 +29,7 @@ body {
   gap: 30px;
 }
 .menu__item {
+  transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,6 +53,7 @@ body {
   filter: brightness(0) invert(1);
 }
 .menu__add {
+  transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,4 +64,140 @@ body {
 }
 .menu__add:hover {
   background: #e7ebff;
+}
+.content {
+  width: 900px;
+  padding: 50px;
+}
+.progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  min-width: 235px;
+}
+
+.progress__text {
+  display: flex;
+  justify-content: space-between;
+}
+.progress__name {
+  font-size: 20px;
+  line-height: 16px;
+  color: #232360;
+}
+.progress__percent {
+  font-size: 20px;
+  line-height: 16px;
+  color: #232360;
+}
+.progress__bar {
+  width: 100%;
+  background: #e6e9ed;
+  border-radius: 4px;
+  height: 5px;
+  position: relative;
+}
+.progress__cover-bar {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  width: 80%;
+  border-radius: 4px;
+  height: 5px;
+  background: #5051f9;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+main {
+  margin-top: 30px;
+}
+h1 {
+  font-size: 30px;
+  line-height: 33px;
+  color: #000000;
+}
+.flex-wrapp-habbit {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.habbit {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 0 10px 10px 0;
+}
+
+.habbit__day {
+  background: #fbfaff;
+  padding: 20px 40px;
+  border-radius: 10px 0 0 10px;
+  border-right: 1px solid #e7ebfb;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.habbit__comment {
+  color: #23235f;
+  width: 76%;
+  padding: 20px 40px;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.habbit__delete {
+  border: 5px;
+  transition: all 0.3s ease-in-out;
+  margin-left: auto;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.habbit__delete:hover {
+  background: #e6e9ed;
+  transform: translateY(-3px);
+}
+.habbit__input {
+  flex: 1;
+  padding: 15px 50px;
+  border-radius: 8px;
+  border: 1px solid #e7ebfb;
+  margin-left: 20px;
+}
+.habbit__input::placeholder {
+  color: #8899a8;
+  font-size: 14px;
+}
+
+.habbit__add {
+  background: #edecfe;
+  padding: 12px 30px;
+  border-radius: 8px;
+  color: #5051f9;
+}
+.habbit__add:hover {
+  background: #cdcddd;
+}
+
+.habbit__form {
+  position: relative;
+  width: 84%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.input__icon {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
 }
