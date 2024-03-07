@@ -101,7 +101,6 @@ body {
 .progress__cover-bar {
   transition: all 0.3s ease-in-out;
   position: absolute;
-  width: 80%;
   border-radius: 4px;
   height: 5px;
   background: #5051f9;
