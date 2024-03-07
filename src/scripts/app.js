@@ -81,6 +81,7 @@ function renderContent(activeHabbit) {
 }
 
 function rerender(activeHabbitId) {
+  if (!activeHabbit) return;
   const activeHabbit = habbits.find((habbit) => habbit.id === activeHabbitId);
   if (!activeHabbit) return;
   rerenderMenu(activeHabbit);
