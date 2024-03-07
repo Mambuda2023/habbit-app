@@ -10,6 +10,10 @@ const page = {
     progressPercent: document.querySelector(".progress__percent"),
     progressCoverBar: document.querySelector(".progress__cover-bar"),
   },
+  content: {
+    daysContainer: document.getElementById("habbitDays"),
+    nextDay: document.querySelector(".habbit__day"),
+  },
 };
 
 /* Utils */
@@ -28,8 +32,6 @@ function saveData() {
 
 /* RENDER */
 function rerenderMenu(activeHabbit) {
-  if (!activeHabbit) return;
-
   for (const habbit of habbits) {
     const existed = document.querySelector(`[menu-habbit-id="${habbit.id}"]`);
     if (!existed) {
@@ -53,9 +55,6 @@ function rerenderMenu(activeHabbit) {
   }
 }
 function renderHead(activeHabbit) {
-  if (!activeHabbit) {
-    return;
-  }
   page.header.h1.innerText = activeHabbit.name;
   const progress =
     activeHabbit.days.length / activeHabbit.target > 1
@@ -67,8 +66,10 @@ function renderHead(activeHabbit) {
 
 function rerender(activeHabbitId) {
   const activeHabbit = habbits.find((habbit) => habbit.id === activeHabbitId);
+  if (!activeHabbit) return;
   rerenderMenu(activeHabbit);
   renderHead(activeHabbit);
+  renderContent(activeHabbit);
 }
 
 /* INIT */
