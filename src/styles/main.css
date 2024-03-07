@@ -120,17 +120,13 @@ h1 {
   line-height: 33px;
   color: #000000;
 }
-.flex-wrapp-habbit {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
 
 .habbit {
   display: flex;
   align-items: center;
   background: #fff;
   border-radius: 0 10px 10px 0;
+  margin-bottom: 12px;
 }
 
 .habbit__day {
