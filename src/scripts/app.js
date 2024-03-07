@@ -83,7 +83,6 @@ function renderContent(activeHabbit) {
 function rerender(activeHabbitId) {
   const activeHabbit = habbits.find((habbit) => habbit.id === activeHabbitId);
   if (!activeHabbit) return;
-  if (!activeHabbit) return;
   rerenderMenu(activeHabbit);
   renderHead(activeHabbit);
   renderContent(activeHabbit);
