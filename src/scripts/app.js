@@ -28,8 +28,6 @@ function saveData() {
 
 /* RENDER */
 function rerenderMenu(activeHabbit) {
-  if (!activeHabbit) return;
-
   for (const habbit of habbits) {
     const existed = document.querySelector(`[menu-habbit-id="${habbit.id}"]`);
     if (!existed) {
@@ -53,9 +51,6 @@ function rerenderMenu(activeHabbit) {
   }
 }
 function renderHead(activeHabbit) {
-  if (!activeHabbit) {
-    return;
-  }
   page.header.h1.innerText = activeHabbit.name;
   const progress =
     activeHabbit.days.length / activeHabbit.target > 1
@@ -66,6 +61,7 @@ function renderHead(activeHabbit) {
 }
 
 function rerender(activeHabbitId) {
+  if (!activeHabbit) return;
   const activeHabbit = habbits.find((habbit) => habbit.id === activeHabbitId);
   rerenderMenu(activeHabbit);
   renderHead(activeHabbit);
