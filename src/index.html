@@ -53,6 +53,42 @@
           </div>
         </main>
       </div>
+      <div class="cover cover__hidden">
+        <div class="popup">
+          <h2>Новая привычка</h2>
+          <div class="icon-label">Иконка</div>
+          <div class="icon-select">
+            <div class="icon-box">
+              <button class="icon icon_active" onclick="setIcon(this,'sport')">
+                <img src="./images/sport.svg" alt="Спорт" />
+              </button>
+              <button class="icon" onclick="setIcon(this,'water')">
+                <img src="./images/water.svg" alt="Напитки" />
+              </button>
+              <button class="icon" onclick="setIcon(this,'food')">
+                <img src="./images/food.svg" alt="Еда" />
+              </button>
+            </div>
+            <form action="#" class="popup__form">
+              <input type="text" name="name" placeholder="Название" />
+              <input
+                value="sport"
+                type="text"
+                name="icon"
+                hidden
+                placeholder="Иконка"
+              />
+              <input type="number" name="target" placeholder="Цель" />
+              <button class="habbit__add popup-button" type="submit">
+                Добавить
+              </button>
+            </form>
+            <button class="close-button">
+              <img src="./images/close-popup.svg" alt="Закрыть попап" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="scripts/app.js"></script>
   </body>
