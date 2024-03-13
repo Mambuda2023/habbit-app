@@ -49,7 +49,8 @@ function rerenderMenu(activeHabbit) {
       element.addEventListener("click", () => {
         rerender(habbit.id);
       });
-      if (activeHabbit.id === habbit.id) element.classList.add("icon_active");
+      if (activeHabbit.id === habbit.id)
+        element.classList.add("menu__item_active");
 
       page.menu.appendChild(element);
       continue;
