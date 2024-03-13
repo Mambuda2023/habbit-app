@@ -151,7 +151,6 @@ function setIcon(context, icon) {
   const activeIcon = document.querySelector(".icon.icon_active");
   activeIcon.classList.remove("icon_active");
   context.classList.add("icon_active");
-  console.log(context);
 }
 //Working with habbits
 /* INIT */
