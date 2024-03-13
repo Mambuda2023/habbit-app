@@ -15,6 +15,12 @@ const page = {
     daysContainer: document.getElementById("days"),
     nextDay: document.querySelector(".habbit__day"),
   },
+  popup: {
+    cover: document.querySelector(".cover"),
+    closeButton: document.querySelector(".close-button"),
+    openButton: document.querySelector(".menu__add"),
+    iconField: document.querySelector(".popup__form input[name='icon']"),
+  },
 };
 
 /* Utils */
@@ -37,22 +43,21 @@ function rerenderMenu(activeHabbit) {
     const existed = document.querySelector(`[menu-habbit-id="${habbit.id}"]`);
     if (!existed) {
       const element = document.createElement("button");
-      element.classList.add("menu__item");
+      element.classList.add("icon");
       element.setAttribute("menu-habbit-id", habbit.id);
       element.innerHTML = `<img src="images/${habbit.icon}.svg" alt="${habbit.name}"/>`;
       element.addEventListener("click", () => {
         rerender(habbit.id);
       });
-      if (activeHabbit.id === habbit.id)
-        element.classList.add("menu__item_active");
+      if (activeHabbit.id === habbit.id) element.classList.add("icon_active");
 
       page.menu.appendChild(element);
       continue;
     }
 
     activeHabbit.id === habbit.id
-      ? existed.classList.add("menu__item_active")
-      : existed.classList.remove("menu__item_active");
+      ? existed.classList.add("icon_active")
+      : existed.classList.remove("icon_active");
   }
 }
 function renderHead(activeHabbit) {
@@ -80,7 +85,7 @@ function renderContent(activeHabbit) {
   }
   page.content.nextDay.innerHTML = `День ${activeHabbit.days.length + 1}`;
 }
-
+//Working with days
 function addDays(event) {
   const form = event.target;
   event.preventDefault();
@@ -115,6 +120,7 @@ function deleteDay(index) {
   rerender(globalActiveHabbitId);
   saveData();
 }
+//Working with days
 
 function rerender(activeHabbitId) {
   globalActiveHabbitId = activeHabbitId;
@@ -124,7 +130,28 @@ function rerender(activeHabbitId) {
   renderHead(activeHabbit);
   renderContent(activeHabbit);
 }
+//Скрытие popup
+page.popup.closeButton.addEventListener("click", () => {
+  page.popup.cover.classList.add("cover__hidden");
+});
 
+page.popup.cover.addEventListener("click", (event) => {
+  if (event.target.classList.contains("cover"))
+    page.popup.cover.classList.add("cover__hidden");
+});
+
+page.popup.openButton.addEventListener("click", () => {
+  page.popup.cover.classList.remove("cover__hidden");
+});
+//Скрытие popup
+//Working with habbits
+function setIcon(context, icon) {
+  page.popup.iconField.value = icon;
+  const activeIcon = document.querySelector(".icon.icon_active");
+  activeIcon.classList.remove("icon_active");
+  context.classList.add("icon_active");
+}
+//Working with habbits
 /* INIT */
 (() => {
   loadData();
