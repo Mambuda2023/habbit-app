@@ -123,9 +123,8 @@ function renderContent(activeHabit) {
 function addDays(event) {
   event.preventDefault();
   const data = validateForm(event.target, ["comment"]);
-  if (!data) {
-    return;
-  }
+  if (!data) return;
+
   habits = habits.map((habit) => {
     if (habit.id === globalActiveHabitId) {
       return { ...habit, days: habit.days.concat([{ comment: data.comment }]) };
@@ -157,6 +156,7 @@ function rerender(activeHabitId) {
   globalActiveHabitId = activeHabitId;
   const activeHabit = habits.find((habit) => habit.id === activeHabitId);
   if (!activeHabit) return;
+  document.location.replace(document.location.pathname + "#" + activeHabitId);
   rerenderMenu(activeHabit);
   renderHead(activeHabit);
   renderContent(activeHabit);
@@ -192,5 +192,7 @@ function addHabit(event) {
 /* INIT */
 (() => {
   loadData();
-  rerender(habits[0].id);
+  const hashId = Number(document.location.hash.replace("#", ""));
+  const urlHabit = habits.find((habit) => habit.id == hashId);
+  urlHabit ? rerender(urlHabit.id) : rerender(habits[0].id);
 })();
