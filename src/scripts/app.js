@@ -37,6 +37,11 @@ function saveData() {
   localStorage.setItem(HABIT_KEY, JSON.stringify(habits));
 }
 
+function resetForm(form, fields) {
+  for (const field of fields) {
+    form[field].value = "";
+  }
+}
 
 function validateForm(form, fields) {
   const formData = new FormData(form);
