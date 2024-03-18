@@ -218,7 +218,7 @@ input.error {
   opacity: 1;
   background: rgba(56, 56, 56, 0.25);
 }
-.cover.cover__hidden {
+.cover.cover_hidden {
   transition: all 0.3Ws ease-in-out;
   transform: scale(0) translateX(-1000px);
   visibility: hidden;
